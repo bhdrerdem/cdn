@@ -114,6 +114,7 @@ func (server *Server) HandleGetFile(ctx *gin.Context) {
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"message": "Failed to fetch file",
 		})
+		return
 	}
 
 	log.Info().Str("key", key).Msg("file fetched succesfully")
