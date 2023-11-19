@@ -66,8 +66,12 @@ func (c *CloudFrontService) CreateInvalidation(path string) error {
 func (c *CloudFrontService) FetchFile(key string) (io.ReadCloser, int64, string, error) {
 
 	response, err := http.Get(fmt.Sprintf("%s/%s", c.DistributionUrl, key))
-	if err != nil || response.StatusCode != http.StatusOK {
+	if err != nil {
 		return nil, 0, "", err
+	}
+
+	if response.StatusCode != http.StatusOK {
+		return nil, 0, "", fmt.Errorf("failed to get file with status code %d", response.StatusCode)
 	}
 
 	contentType := response.Header.Get("Content-Type")
