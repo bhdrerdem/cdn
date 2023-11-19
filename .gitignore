@@ -1,0 +1,46 @@
+# Binary files and executables
+*.exe
+*.dll
+*.so
+*.dylib
+*.bin
+*.out
+*.log
+*.swo
+*.swp
+*.tar.gz
+
+# Dependency directories
+node_modules/
+vendor/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.bak
+*.orig
+*.rej
+
+# OS generated
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.o
+*.obj
+
+# Backup files
+*~
+
+.serverless
+bin
+.env
