@@ -11,9 +11,11 @@ import (
 
 func main() {
 
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal(err)
+	if os.Getenv("STAGE") != "PROD" {
+		err := godotenv.Load()
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 
 	cloudFrontService := storage.NewCloudFrontService(os.Getenv("DISTRIBUTION_ID"), os.Getenv("DISTRIBUTION_URL"))
