@@ -11,7 +11,7 @@ import (
 
 func main() {
 
-	if os.Getenv("STAGE") != "PROD" {
+	if os.Getenv("STAGE") == "DEV" {
 		err := godotenv.Load()
 		if err != nil {
 			log.Fatal(err)

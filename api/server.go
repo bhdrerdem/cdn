@@ -3,6 +3,7 @@ package api
 import (
 	"cdn/storage"
 	"fmt"
+	"net/http"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -36,6 +37,10 @@ func (s *Server) SetupRouter() {
 	router.PUT("/:key", s.HandleUpdateFile)
 	router.DELETE("/:key", s.HandleDeleteFile)
 	router.GET("/:key", s.HandleGetFile)
+
+	router.GET("/health", func(ctx *gin.Context) {
+		ctx.Status(http.StatusOK)
+	})
 
 	s.router = router
 }
