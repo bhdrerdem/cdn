@@ -65,7 +65,7 @@ func (c *CloudFrontService) CreateInvalidation(path string) error {
 
 func (c *CloudFrontService) FetchFile(key string) (io.ReadCloser, int64, string, error) {
 
-	response, err := http.Get(fmt.Sprintf("%s/%s", c.DistributionUrl, key))
+	response, err := http.Get(fmt.Sprintf("https://%s/%s", c.DistributionUrl, key))
 	if err != nil {
 		return nil, 0, "", err
 	}
